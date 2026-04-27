@@ -1,0 +1,283 @@
+/* ════════════════════════════════════════════════════════════
+   Design System Tokens — dbmanager
+   Source: .agent/designs/foundations-core.md
+   Theme:  dark (单一主题，无亮色模式切换)
+   ════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── ref: color ─ brand ────────────────────────────────── */
+  --ref-color-brand-1:  #F0F4FF;
+  --ref-color-brand-2:  #D1DDFF;
+  --ref-color-brand-3:  #B2C7FF;
+  --ref-color-brand-4:  #8EA1FF;
+  --ref-color-brand-5:  #708BFF;
+  --ref-color-brand-6:  #5772FF;
+  --ref-color-brand-7:  #3F53D9;
+  --ref-color-brand-8:  #2B37B3;
+  --ref-color-brand-9:  #1B228C;
+  --ref-color-brand-10: #121566;
+
+  /* ── ref: color ─ gray ─────────────────────────────────── */
+  --ref-color-gray-1:  #FFFFFF;
+  --ref-color-gray-2:  #F0F0F0;
+  --ref-color-gray-3:  #D2D2D2;
+  --ref-color-gray-4:  #AFAFAF;
+  --ref-color-gray-5:  #727272;
+  --ref-color-gray-6:  #555555;
+  --ref-color-gray-7:  #393939;
+  --ref-color-gray-8:  #222222;
+  --ref-color-gray-9:  #141414;
+  --ref-color-gray-10: #000000;
+
+  /* ── ref: color ─ white alpha ──────────────────────────── */
+  --ref-color-white-100: #FFFFFF;
+  --ref-color-white-85:  rgba(255, 255, 255, 0.85);
+  --ref-color-white-65:  rgba(255, 255, 255, 0.65);
+  --ref-color-white-45:  rgba(255, 255, 255, 0.45);
+  --ref-color-white-35:  rgba(255, 255, 255, 0.35);
+  --ref-color-white-25:  rgba(255, 255, 255, 0.25);
+  --ref-color-white-20:  rgba(255, 255, 255, 0.20);
+  --ref-color-white-15:  rgba(255, 255, 255, 0.15);
+  --ref-color-white-12:  rgba(255, 255, 255, 0.12);
+  --ref-color-white-10:  rgba(255, 255, 255, 0.10);
+  --ref-color-white-8:   rgba(255, 255, 255, 0.08);
+  --ref-color-white-6:   rgba(255, 255, 255, 0.06);
+  --ref-color-white-4:   rgba(255, 255, 255, 0.04);
+  --ref-color-white-0:   rgba(255, 255, 255, 0);
+
+  /* ── ref: color ─ black alpha ──────────────────────────── */
+  --ref-color-black-100: #000000;
+  --ref-color-black-95:  rgba(0, 0, 0, 0.95);
+  --ref-color-black-75:  rgba(0, 0, 0, 0.75);
+  --ref-color-black-50:  rgba(0, 0, 0, 0.50);
+  --ref-color-black-40:  rgba(0, 0, 0, 0.40);
+  --ref-color-black-30:  rgba(0, 0, 0, 0.30);
+  --ref-color-black-20:  rgba(0, 0, 0, 0.20);
+  --ref-color-black-12:  rgba(0, 0, 0, 0.12);
+  --ref-color-black-10:  rgba(0, 0, 0, 0.10);
+  --ref-color-black-6:   rgba(0, 0, 0, 0.06);
+  --ref-color-black-4:   rgba(0, 0, 0, 0.04);
+
+  /* ── ref: color ─ status ───────────────────────────────── */
+  --ref-color-green-5:  #4DCC73;
+  --ref-color-green-6:  #32B25D;
+  --ref-color-green-7:  #1F8E49;
+  --ref-color-green-10: #061A0E;
+  --ref-color-orange-6: #E8B13C;
+  --ref-color-orange-10: #4F2E0A;
+  --ref-color-red-5:   #F04B51;
+  --ref-color-red-6:   #DA323F;
+  --ref-color-red-7:   #BA3139;
+  --ref-color-red-10:  #400609;
+  --ref-color-cyan-6:  #0FC6C2;
+
+  /* ── ref: radius ───────────────────────────────────────── */
+  --ref-radius-none: 0px;
+  --ref-radius-xs:   2px;
+  --ref-radius-sm:   4px;
+  --ref-radius-md:   6px;
+  --ref-radius-lg:   8px;
+  --ref-radius-xl:   12px;
+  --ref-radius-pill: 999px;
+
+  /* ── ref: shadow ───────────────────────────────────────── */
+  --ref-shadow-none:        none;
+  --ref-shadow-1:           0 6px 16px rgba(0, 0, 0, 0.28);
+  --ref-shadow-2:           0 12px 24px rgba(0, 0, 0, 0.36);
+  --ref-shadow-3:           0 17px 20px 0 rgba(0, 0, 0, 0.35),
+                            0 0 14px 0 rgba(0, 0, 0, 0.15),
+                            0 0 0.7px 0 rgba(0, 0, 0, 0.50);
+  --ref-shadow-focus-brand: 0 0 0 3px rgba(87, 114, 255, 0.28);
+  --ref-shadow-focus-error: 0 0 0 3px rgba(218, 50, 63, 0.24);
+
+  /* ── ref: space ────────────────────────────────────────── */
+  --ref-space-0:  0;
+  --ref-space-2:  2px;
+  --ref-space-4:  4px;
+  --ref-space-5:  5px;
+  --ref-space-6:  6px;
+  --ref-space-8:  8px;
+  --ref-space-10: 10px;
+  --ref-space-12: 12px;
+  --ref-space-14: 14px;
+  --ref-space-16: 16px;
+  --ref-space-20: 20px;
+  --ref-space-24: 24px;
+  --ref-space-32: 32px;
+  --ref-space-40: 40px;
+  --ref-space-48: 48px;
+  --ref-space-64: 64px;
+
+  /* ── ref: typography ───────────────────────────────────── */
+  --ref-font-family-base: 'Source Han Sans SC', 'Noto Sans SC', 'Microsoft YaHei',
+    'v-sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --ref-font-family-mono: 'SFMono-Regular', 'JetBrains Mono', 'Consolas', monospace;
+
+  --ref-font-weight-regular:  400;
+  --ref-font-weight-medium:   500;
+  --ref-font-weight-semibold: 600;
+
+  --ref-font-size-xs:  12px;
+  --ref-font-size-sm:  13px;
+  --ref-font-size-md:  14px;
+  --ref-font-size-lg:  16px;
+  --ref-font-size-xl:  20px;
+  --ref-font-size-2xl: 24px;
+  --ref-font-size-3xl: 28px;
+
+  --ref-font-line-height-sm:  22px;
+  --ref-font-line-height-md:  22px;
+  --ref-font-line-height-lg:  24px;
+  --ref-font-line-height-xl:  28px;
+  --ref-font-line-height-2xl: 32px;
+
+  /* ── sys: color ─ text ─────────────────────────────────── */
+  --sys-color-text-title:       var(--ref-color-white-100);
+  --sys-color-text-primary:     var(--ref-color-white-85);
+  --sys-color-text-secondary:   var(--ref-color-white-65);
+  --sys-color-text-tertiary:    var(--ref-color-white-45);
+  --sys-color-text-placeholder: var(--ref-color-white-35);
+  --sys-color-text-disabled:    var(--ref-color-white-25);
+  --sys-color-text-inverse:     var(--ref-color-white-100);
+  --sys-color-text-link:        var(--ref-color-brand-5);
+
+  /* ── sys: color ─ background ───────────────────────────── */
+  --sys-color-bg-page:               var(--ref-color-gray-10);
+  --sys-color-bg-container:          var(--ref-color-gray-9);
+  --sys-color-bg-container-secondary: var(--ref-color-gray-10);
+  --sys-color-bg-form-control:       var(--ref-color-black-30);
+  --sys-color-bg-elevated:           var(--ref-color-gray-8);
+  --sys-color-bg-dialog:             rgba(20, 28, 40, 0.72);
+  --sys-color-bg-brand:              var(--ref-color-brand-6);
+  --sys-color-bg-brand-hover:        var(--ref-color-brand-5);
+  --sys-color-bg-brand-active:       var(--ref-color-brand-7);
+  --sys-color-bg-success:            var(--ref-color-green-10);
+  --sys-color-bg-error:              var(--ref-color-red-10);
+
+  /* ── sys: color ─ border ───────────────────────────────── */
+  --sys-color-border-default:        var(--ref-color-gray-8);
+  --sys-color-border-secondary:      var(--ref-color-gray-9);
+  --sys-color-border-strong:         var(--ref-color-gray-7);
+  --sys-color-border-focus:          var(--ref-color-brand-6);
+  --sys-color-border-error:          var(--ref-color-red-6);
+  --sys-color-border-success:        var(--ref-color-green-6);
+  --sys-color-border-dialog:         rgba(255, 255, 255, 0.18);
+  --sys-color-border-on-dark-strong: var(--ref-color-white-25);
+  --sys-color-border-on-dark-weak:   var(--ref-color-white-15);
+
+  /* ── sys: color ─ misc ─────────────────────────────────── */
+  --sys-color-divider-default:     var(--ref-color-white-12);
+  --sys-color-bg-side:             var(--ref-color-white-10);
+  --sys-color-bg-overlay-deep:     var(--ref-color-white-8);
+  --sys-color-bg-overlay-shallow:  var(--ref-color-white-4);
+  --sys-color-fill-brand-solid:    var(--ref-color-brand-6);
+  --sys-color-status-success:      var(--ref-color-green-6);
+  --sys-color-status-error:        var(--ref-color-red-6);
+  --sys-color-status-info:         var(--ref-color-brand-6);
+
+  /* ── sys: layout ───────────────────────────────────────── */
+  --sys-layout-header-height:         56px;
+  --sys-layout-sidebar-width:         260px;
+  --sys-layout-sidebar-collapsed:     64px;
+  --sys-layout-window-titlebar-height: 48px;
+  --sys-layout-window-sidebar-width:   200px;
+  --sys-layout-window-sidebar-width-collapsed: 70px;
+  --sys-layout-window-action-hit-area: 40px;
+  --sys-layout-window-collapse-trigger-size: 28px;
+  --sys-layout-window-radius:          var(--ref-radius-lg);
+  --sys-layout-window-resize-handle-height: 30px;
+  --sys-layout-content-padding:       var(--ref-space-16);
+  --sys-layout-card-gap:              var(--ref-space-16);
+  --sys-layout-form-gap:              var(--ref-space-16);
+
+  /* ── depth tokens ──────────────────────────────────────── */
+  /* depth-1: card / panel on page */
+  --depth-1-bg:     var(--ref-color-white-4);
+  --depth-1-border: var(--ref-color-white-8);
+  /* depth-2: dropdown / popover */
+  --depth-2-bg:     var(--ref-color-gray-8);
+  --depth-2-border: var(--ref-color-white-15);
+  --depth-2-shadow: var(--ref-shadow-2);
+  /* depth-3: modal / strong overlay */
+  --depth-3-bg:          rgba(24, 31, 44, 0.86);
+  --depth-3-border:      rgba(255, 255, 255, 0.16);
+  --depth-3-shadow:      0 28px 72px rgba(2, 7, 16, 0.44),
+                         0 12px 30px rgba(2, 7, 16, 0.28),
+                         inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  --depth-3-backdrop:    blur(28px);
+  --comp-dialog-mask-bg: rgba(4, 8, 16, 0.38);
+  --comp-dialog-sheen:   transparent;
+  --comp-dialog-header-bg: rgba(255,255,255,0.04);
+  --comp-dialog-footer-bg: rgba(255,255,255,0.03);
+  --comp-dialog-section-border: rgba(255,255,255,0.08);
+  --comp-dialog-inner-stroke: rgba(255,255,255,0.10);
+
+  /* ── scroll: scrollbar tokens ─────────────────────────── */
+  --scroll-size-default:      6px;
+  --scroll-size-sidebar:      8px;
+  --scroll-track-bg:          transparent;
+  --scroll-thumb-bg:          var(--ref-color-white-10);
+  --scroll-thumb-bg-hover:    var(--ref-color-white-20);
+  --scroll-thumb-bg-active:   var(--ref-color-white-25);
+  --scroll-thumb-radius:      3px;
+  --scroll-thumb-border:      2px solid transparent;
+  --scroll-track-radius:      999px;
+
+  /* ── gm-app-components compat tokens ──────────────────── */
+  --jm-theme:              var(--ref-color-gray-9);
+  --jm-bg-color:           var(--ref-color-gray-9);
+  --jm-primary-1:          var(--ref-color-brand-6);
+  --jm-accent-1:           var(--ref-color-gray-8);
+  --jm-accent-2:           var(--ref-color-gray-7);
+  --jm-accent-3:           var(--ref-color-gray-6);
+  --jm-accent-4:           var(--ref-color-gray-5);
+  --jm-accent-5:           var(--ref-color-white-45);
+  --jm-accent-6:           var(--ref-color-white-65);
+  --jm-accent-7:           var(--ref-color-white-85);
+  --jm-system-hover-color: var(--ref-color-white-8);
+
+  /* ── shell: app-window tokens (from app-window.md) ────── */
+  /* The whole app frame is a glassmorphism card on top of the OS bg */
+  --shell-app-window-bg:              rgba(20, 20, 20, 0.82);
+  --shell-app-window-backdrop-blur:   60px;
+  --shell-app-window-border:          var(--ref-color-white-20);
+  --shell-app-window-shadow:          0 0 0.696px rgba(0,0,0,0.5),
+                                      0 0 14px rgba(0,0,0,0.15),
+                                      0 17px 20px rgba(0,0,0,0.35);
+  --shell-app-window-titlebar-border: var(--ref-color-black-50);
+  /* Sidebar: 10% white overlay — gives translucent panel look */
+  --shell-app-window-sidebar-bg:      var(--ref-color-white-10);
+  --shell-app-window-sidebar-divider: var(--ref-color-black-50);
+  /* Sidebar item states */
+  --shell-app-window-sidebar-item-selected-bg:  var(--ref-color-white-8);
+  --shell-app-window-sidebar-item-selected-bar: var(--ref-color-brand-6);
+
+  /* ── component: sidebar-navigation ────────────────────── */
+  --comp-sidebar-nav-bg:                    var(--sys-color-bg-side);
+  --comp-sidebar-nav-divider:               var(--sys-color-border-on-dark-strong);
+  --comp-sidebar-nav-item-bg-default:       transparent;
+  --comp-sidebar-nav-item-bg-hover:         var(--ref-color-white-8);
+  --comp-sidebar-nav-item-bg-selected:      var(--ref-color-white-8);
+  --comp-sidebar-nav-item-icon-default:     var(--sys-color-text-secondary);
+  --comp-sidebar-nav-item-icon-selected:    var(--sys-color-border-focus);
+  --comp-sidebar-nav-item-text-default:     var(--sys-color-text-secondary);
+  --comp-sidebar-nav-item-text-selected:    var(--sys-color-text-title);
+  --comp-sidebar-nav-item-selected-bar:     var(--ref-color-brand-6);
+  --comp-sidebar-nav-item-badge-bg:         var(--ref-color-red-7);
+  --comp-sidebar-nav-item-badge-text:       var(--sys-color-text-inverse);
+
+  /* content area: transparent, composes list/card/form/detail */
+  --shell-app-window-content-bg: transparent;
+
+  /* ── compat aliases (legacy --jm-text-* → sys tokens) ──────
+     Components that use --jm-text-primary / --jm-text-secondary
+     remain correct without mass search-replace.
+     Source of truth stays in --sys-color-text-*.             */
+  --jm-text-primary:   var(--sys-color-text-primary);
+  --jm-text-secondary: var(--sys-color-text-secondary);
+
+  /* ── sys: status warning (missing from initial token set) ── */
+  --sys-color-status-warning: var(--ref-color-yellow-6);
+}

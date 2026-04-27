@@ -1,0 +1,532 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+#app-window {
+  /* position:fixed+inset:0 bypasses NaiveUI provider div height chain issues */
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  font-family: var(--ref-font-family-base);
+  color: var(--sys-color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Flex column so n-layout inside fills remaining height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* NaiveUI provider divs must not break the layout; make them flex passthrough */
+#app-window > .n-config-provider,
+#app-window > div {
+  flex: 1;
+  min-height: 0;
+  display: contents; /* render as if not there — children inherit parent flex */
+}
+
+/* ── Unified Scrollbar System ───────────────────────────── */
+/* Base scrollbar: 6px default for all content areas */
+::-webkit-scrollbar {
+  width: var(--scroll-size-default);
+  height: var(--scroll-size-default);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track-bg);
+  border-radius: var(--scroll-track-radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb-bg);
+  border-radius: var(--scroll-thumb-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-bg-hover);
+}
+
+.n-button {
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease !important;
+}
+
+.n-button:not(:disabled):hover,
+.n-button:not(:disabled):active {
+  transform: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Unified Table System — shared across all table components
+   Aligned to designs/table.md + PHP management reference
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Table Header Cell ── */
+.gm-pth {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0 var(--ref-space-14);
+  height: 40px;
+  white-space: nowrap;
+  text-align: left;
+  background: #2B2B2B;
+  color: var(--sys-color-text-secondary);
+  font-family: var(--ref-font-family-base);
+  font-size: var(--ref-font-size-sm);
+  font-weight: var(--ref-font-weight-medium);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--ref-color-white-8);
+  user-select: none;
+  min-width: 80px;
+}
+
+/* Vertical divider between header columns (PHP style) */
+.gm-pth::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background: var(--ref-color-white-12);
+}
+
+.gm-pth:first-child::before {
+  display: none;
+}
+
+/* Hide NaiveUI default column resizer */
+.gm-pth::after {
+  display: none !important;
+}
+
+/* ── Table Data Row ── */
+.gm-ptr {
+  background: transparent;
+  border-bottom: 1px solid var(--ref-color-white-8);
+  transition: background 0.12s ease;
+}
+
+.gm-ptr:last-child {
+  border-bottom: none;
+}
+
+.gm-ptr:hover {
+  background: var(--ref-color-white-4) !important;
+}
+
+/* ── Table Data Cell ── */
+.gm-ptd {
+  position: relative;
+  padding: 7px var(--ref-space-14);
+  max-width: 320px;
+  text-align: left;
+  color: var(--sys-color-text-primary);
+  font-family: var(--ref-font-family-base);
+  font-size: var(--ref-font-size-sm);
+  line-height: 1.6;
+  vertical-align: middle;
+  cursor: default;
+  white-space: nowrap;
+}
+
+/* Text truncation lives on the inner span, not the td */
+.gm-ptd > .cell-content,
+.gm-ptd > .cell-text,
+.gm-ptd > span:not(.null-badge):not(.schema-badge):not(.overview-badge):not(.hint-badge) {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.n-button--primary-type {
+  box-shadow: 0 2px 12px rgba(87,114,255,0.40) !important;
+  transition: box-shadow 0.18s ease !important;
+}
+
+.n-button--primary-type:not(:disabled):hover {
+  box-shadow: 0 4px 20px rgba(87,114,255,0.55) !important;
+}
+
+.n-button--primary-type:not(:disabled):active {
+  box-shadow: 0 1px 6px rgba(87,114,255,0.30) !important;
+}
+
+.n-tabs-tab--active::after {
+  background: var(--ref-color-brand-6) !important;
+}
+
+.n-dropdown-menu {
+  background: var(--sys-color-bg-elevated) !important;
+  border: 1px solid var(--ref-color-white-12) !important;
+  border-radius: var(--ref-radius-xl) !important;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.50),
+    0 2px 8px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  padding: var(--ref-space-4) !important;
+}
+
+.n-dropdown-option-body__label {
+  font-size: var(--ref-font-size-sm) !important;
+  color: var(--sys-color-text-primary) !important;
+}
+
+.n-dropdown-option:hover .n-dropdown-option-body {
+  background: var(--ref-color-white-8) !important;
+  border-radius: var(--ref-radius-md) !important;
+}
+
+.n-dropdown-option--danger .n-dropdown-option-body__label {
+  color: var(--ref-color-red-6) !important;
+}
+
+.n-dropdown-option--danger:hover .n-dropdown-option-body {
+  background: rgba(218,50,63,0.12) !important;
+}
+
+.n-dropdown-divider {
+  border-color: var(--ref-color-white-8) !important;
+  margin: 3px 0 !important;
+}
+
+.n-modal-mask {
+  background: rgba(0, 0, 0, 0.34) !important;
+  backdrop-filter: blur(18px) saturate(126%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(126%) !important;
+}
+
+.n-card.n-modal,
+.n-dialog,
+.n-drawer-content {
+  position: relative;
+  overflow: hidden;
+  background: var(--depth-3-bg) !important;
+  border: 1px solid var(--depth-3-border) !important;
+  box-shadow: var(--depth-3-shadow) !important;
+  backdrop-filter: var(--depth-3-backdrop) saturate(130%);
+  -webkit-backdrop-filter: var(--depth-3-backdrop) saturate(130%);
+}
+
+.n-card.n-modal::before,
+.n-dialog::before,
+.n-drawer-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--comp-dialog-sheen);
+  pointer-events: none;
+}
+
+.n-card.n-modal::after,
+.n-dialog::after,
+.n-drawer-content::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid var(--comp-dialog-inner-stroke);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.n-card.n-modal .n-card-header,
+.n-dialog .n-dialog__title,
+.n-drawer-content .n-drawer-header {
+  position: relative;
+  z-index: 1;
+}
+
+.n-card.n-modal .n-card-header,
+.n-drawer-content .n-drawer-header {
+  background: var(--comp-dialog-header-bg);
+  border-bottom: 1px solid var(--comp-dialog-section-border);
+}
+
+.n-card.n-modal .n-card-header__main,
+.n-dialog .n-dialog__title,
+.n-drawer-content .n-drawer-header__main {
+  color: var(--sys-color-text-primary) !important;
+  font-weight: var(--ref-font-weight-semibold) !important;
+  font-size: var(--ref-font-size-lg) !important;
+}
+
+.n-card.n-modal .n-card__content,
+.n-card.n-modal .n-card__footer,
+.n-dialog .n-dialog__content,
+.n-dialog .n-dialog__action,
+.n-drawer-content .n-drawer-body-content-wrapper,
+.n-drawer-content .n-drawer-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.n-card.n-modal .n-card__content,
+.n-dialog .n-dialog__content,
+.n-drawer-content .n-drawer-body-content-wrapper {
+  background: transparent;
+}
+
+.n-card.n-modal .n-card__footer,
+.n-dialog .n-dialog__action,
+.n-drawer-content .n-drawer-footer {
+  background: var(--comp-dialog-footer-bg);
+  border-top: 1px solid var(--comp-dialog-section-border);
+}
+
+.n-card.n-modal.form-modal {
+  background: rgba(40, 40, 40, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.n-card.n-modal.form-modal::before,
+.n-card.n-modal.form-modal::after {
+  display: none !important;
+}
+
+.n-card.n-modal .form-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 12px 16px !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  border-radius: 8px 8px 0 0;
+}
+
+.n-card.n-modal .form-modal-head .n-card-header__main {
+  min-height: 24px;
+  line-height: 24px;
+  font-size: 14px !important;
+  color: var(--sys-color-text-primary) !important;
+  width: calc(100% - 36px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600 !important;
+}
+
+.n-card.n-modal .form-modal-head .n-base-close {
+  width: 28px;
+  height: 28px;
+  margin: 0 !important;
+  border-radius: 6px;
+  color: var(--sys-color-text-secondary) !important;
+  background: transparent;
+}
+
+.n-card.n-modal .form-modal-head .n-base-close:hover {
+  background: rgba(255,255,255,0.08) !important;
+  color: var(--sys-color-text-primary) !important;
+}
+
+.n-card.n-modal .form-modal-head .n-base-close .n-base-icon {
+  font-size: 15px;
+}
+
+.n-card.n-modal .form-modal-body {
+  background: transparent !important;
+  position: relative;
+  padding: 16px 20px !important;
+  border-radius: 0 !important;
+}
+
+.n-card.n-modal .form-modal-footer {
+  min-height: 48px;
+  padding: 10px 20px 14px !important;
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-top: none !important;
+  border-radius: 0 0 8px 8px;
+}
+
+.n-card.n-modal .form-modal-footer .n-button {
+  margin-right: 0;
+  min-width: 88px;
+  height: 32px;
+}
+
+.n-dialog {
+  background: rgba(40, 40, 40, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+}
+
+.n-dialog .n-dialog__icon {
+  color: var(--sys-color-text-primary) !important;
+}
+
+.n-drawer-content {
+  border-radius: 8px 0 0 8px !important;
+  background: rgba(40, 40, 40, 0.75) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow: -16px 0 48px rgba(0,0,0,0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.n-drawer-content .n-drawer-header {
+  padding: 18px 22px 16px !important;
+}
+
+.n-drawer-content .n-drawer-body-content-wrapper {
+  padding: 18px 22px !important;
+}
+
+.n-drawer-content .n-drawer-footer {
+  padding: 16px 22px !important;
+}
+
+.n-base-select-menu {
+  background: rgba(40, 40, 40, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.n-form-item-label__text {
+  color: var(--sys-color-text-secondary) !important;
+  font-weight: var(--ref-font-weight-medium) !important;
+  font-size: var(--ref-font-size-sm) !important;
+}
+
+.n-form-item-label__asterisk {
+  color: var(--ref-color-red-6) !important;
+}
+
+.n-input--focus,
+.n-base-selection--focus {
+  box-shadow: var(--ref-shadow-focus-brand) !important;
+}
+
+/* ── Global Popover ─── */
+.n-popover:not(.n-popover--raw) {
+  background: rgba(40, 40, 40, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  --n-color: rgba(40, 40, 40, 0.75) !important;
+}
+
+.n-tooltip {
+  background: rgba(18, 18, 22, 0.82) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 9px !important;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 0.5px rgba(255,255,255,0.04) inset !important;
+  padding: 6px 10px !important;
+  animation: tooltip-in 0.18s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+.n-tooltip .n-tooltip__content {
+  font-family: var(--ref-font-family-mono) !important;
+  font-size: var(--ref-font-size-xs) !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  letter-spacing: 0.01em;
+}
+
+.n-tooltip .n-popover-arrow-wrapper {
+  display: none !important;
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.91) translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ══════════════════════════════════════════
+   Bar Icon Button (global, used across components)
+   ══════════════════════════════════════════ */
+.bar-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--ref-radius-sm);
+  background: transparent;
+  color: var(--sys-color-text-secondary);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.bar-icon-btn:hover:not(:disabled) {
+  background: var(--ref-color-white-8);
+  color: var(--sys-color-text-title);
+}
+.bar-icon-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.bar-icon-btn--active {
+  background: rgba(91, 99, 246, 0.15);
+  color: #6B74FF;
+}
+.bar-icon-btn--active:hover {
+  background: rgba(91, 99, 246, 0.25);
+  color: #8B92FF;
+}
+.bar-icon-btn--danger:hover:not(:disabled) {
+  background: rgba(255, 69, 58, 0.15);
+  color: #FF453A;
+}
+.bar-icon-btn--sm {
+  width: 24px;
+  height: 24px;
+}

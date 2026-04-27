@@ -1,0 +1,15 @@
+# Compiled/built outputs
+/backend/build/
+/backend/dbmanager
+/backend/.dbmanager_connections.enc
+/backend/logs/
+/www/node_modules/
+/www/dist/
+/www/*.tar.gz
+/target/
+
+# OS and tools
+/.agents/
+/.agent/
+/.vscode/
+.DS_Store

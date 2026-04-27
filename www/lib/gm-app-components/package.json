@@ -1,0 +1,11 @@
+{
+  "name": "gm-app-components",
+  "version": "1.0.10",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "private": false,
+  "peerDependencies": {
+    "vue": "^3.2.0",
+    "naive-ui": "^2.34.0"
+  }
+}

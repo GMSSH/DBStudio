@@ -1,0 +1,27 @@
+type __VLS_Props = {
+    show: boolean;
+    autoFocus?: boolean;
+};
+declare function __VLS_template(): {
+    attrs: Partial<{}>;
+    slots: {
+        default?(_: {}): any;
+    };
+    refs: {};
+    rootEl: any;
+};
+type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    "after-enter": (...args: any[]) => void;
+    "after-leave": (...args: any[]) => void;
+}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
+    "onAfter-enter"?: ((...args: any[]) => any) | undefined;
+    "onAfter-leave"?: ((...args: any[]) => any) | undefined;
+}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
+declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+export default _default;
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
